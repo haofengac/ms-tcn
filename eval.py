@@ -98,7 +98,7 @@ def main():
 
     args = parser.parse_args()
 
-    ground_truth_path = "./data/"+args.dataset+"/groundTruth/"
+    base_path = "./data/"+args.dataset
     recog_path = "./results/"+args.dataset+"/split_"+args.split+"/"
     file_list = "./data/"+args.dataset+"/splits/test.split"+args.split+".bundle"
 
@@ -112,7 +112,7 @@ def main():
     edit = 0
 
     for vid in list_of_videos:
-        gt_file = ground_truth_path + vid
+        gt_file = base_path + vid
         gt_content = read_file(gt_file).split('\n')[0:-1]
         
         recog_file = recog_path + vid.split('.')[0]
